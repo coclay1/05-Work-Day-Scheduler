@@ -11,17 +11,37 @@ $(function () {
   //
   var saveBtn1 = $('#timeContainer')
   var rightNow = $('#currentDay')
+  var comment = document.getElementById("msg")
+
   function currentTime() {
-    setInterval(function() {
+    setInterval(function () {
       rightNow.text(dayjs().format('MMM DD, YYYY h A'))
     }, 1000)
   }
   currentTime()
-  function saveTime() {
-    console.log(dayjs().format('MM DD, YYYY'))
+
+  function currnetToDo() {
+    var item = comment.value.trim() 
+    localStorage.setItem("currentToDo", item)
+  }
+  
+  function renderToDo() {
+    var lastToDo = localStorage.getItem("currentToDo");
+    if (lastToDo !== null) {
+      todayToDo = lastToDo;
+      document.getElementById("msg").innerHTML = todayToDo
+    }else {
+      return;
+    }
     
   }
-  saveBtn1.on('click', '.btn', saveTime)
+
+
+  saveBtn1.on('click', '.btn', function(event) {
+    event.preventDefault();
+    currnetToDo();
+    renderToDo();
+  })
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -33,4 +53,11 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+
+
+  function init() {
+    renderToDo()
+  }
+  init()
 });
