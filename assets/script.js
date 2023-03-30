@@ -9,12 +9,17 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  var saveBtn1 = $('#time')
-  var timeContainer = $('#time-container')
+  var saveBtn1 = $('#timeContainer')
+  var rightNow = $('#currentDay')
+  function currentTime() {
+    setInterval(function() {
+      rightNow.text(dayjs().format('MMM DD, YYYY h A'))
+    }, 1000)
+  }
+  currentTime()
   function saveTime() {
     console.log(dayjs().format('MM DD, YYYY'))
-    var newTimeBlock = document.createElement('div')
-    timeContainer.append(newTimeBlock)
+    
   }
   saveBtn1.on('click', '.btn', saveTime)
   // TODO: Add code to apply the past, present, or future class to each time
