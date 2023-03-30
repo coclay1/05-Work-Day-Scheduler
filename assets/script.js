@@ -10,7 +10,13 @@ $(function () {
   // useful when saving the description in local storage?
   //
   var saveBtn1 = $('#time')
-  saveBtn1.on('click', saveTime)
+  var timeContainer = $('#time-container')
+  function saveTime() {
+    console.log(dayjs().format('MM DD, YYYY'))
+    var newTimeBlock = document.createElement('div')
+    timeContainer.append(newTimeBlock)
+  }
+  saveBtn1.on('click', '.btn', saveTime)
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
