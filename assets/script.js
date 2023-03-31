@@ -2,62 +2,50 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  var saveBtn1 = $('#timeContainer')
+  // var for save buttons
+  var saveBtn1 = $('#hour-9')
+  var saveBtn2 = $('#hour-10')
+  var saveBtn3 = $('#hour-11')
+  var saveBtn4 = $('#hour-12')
+  var saveBtn5 = $('#hour-1')
+  var saveBtn6 = $('#hour-2')
+  var saveBtn7 = $('#hour-3')
+  var saveBtn8 = $('#hour-4')
+  var saveBtn9 = $('#hour-5')
+// displays current date and time in header
   var rightNow = $('#currentDay')
-  var comment = document.getElementById("msg")
-
   function currentTime() {
     setInterval(function () {
       rightNow.text(dayjs().format('MMM DD, YYYY h A'))
     }, 1000)
   }
-  currentTime()
+  currentTime();
 
-  function currnetToDo() {
-    var item = comment.value.trim() 
-    localStorage.setItem("currentToDo", item)
+  var comment = document.getElementById("msg")
+  var item1 = [];
+  // stores input into local storage
+  function storeItems() {
+    localStorage.setItem('currentItem1', JSON.stringify(item1))
   }
-  
-  function renderToDo() {
-    var lastToDo = localStorage.getItem("currentToDo");
+// renders input onto page 
+ function renderToDo() {
+    var lastToDo = JSON.parse(localStorage.getItem("currentItem1"));
     if (lastToDo !== null) {
       todayToDo = lastToDo;
       document.getElementById("msg").innerHTML = todayToDo
     }else {
       return;
     }
-    
   }
-
-
+// event listener to save input
   saveBtn1.on('click', '.btn', function(event) {
     event.preventDefault();
-    currnetToDo();
-    renderToDo();
-  })
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+    var toDoText = comment.value.trim();
+    if (toDoText === "") {
+      return;
+    }
+    item1.push(toDoText)
+    storeItems();
+  });
 
-
-
-  function init() {
-    renderToDo()
-  }
-  init()
 });
