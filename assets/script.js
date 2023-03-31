@@ -181,7 +181,7 @@ $(function () {
   };
   saveBtn7.on('click', '.btn', function(event) {
     event.preventDefault();
-    var toDoText7 = comment6.value.trim();
+    var toDoText7 = comment7.value.trim();
     if (toDoText7 === "") {
       return;
     }
@@ -227,15 +227,16 @@ $(function () {
   };
   saveBtn9.on('click', '.btn', function(event) {
     event.preventDefault();
-    var toDoText9 = comment6.value.trim();
+    var toDoText9 = comment9.value.trim();
     if (toDoText9 === "") {
       return;
     }
     item9.push(toDoText9)
     storeItems9();
   });
-
+// conditional statement to change block color if currenthour is >/< block hour
   var currentHour = dayjs().hour()
+  // defines block hour
   var hour9 = $('#hour-9')
   hour9 = dayjs().hour(9)
   function blockColor9() {
