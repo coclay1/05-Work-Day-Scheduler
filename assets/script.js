@@ -235,5 +235,17 @@ $(function () {
     storeItems9();
   });
 
-
+  var currentHour = dayjs().hour()
+  var hour9 = $('#hour-9')
+  hour9 = dayjs().hour(9)
+  function blockColor9() {
+    if (currentHour > 9 ) {
+      $('#hour-9').addClass('past')
+    } else if (currentHour < 9) {
+      $('#hour-9').addClass('future')
+    }else {
+      $('#hour-9').addClass('present')
+    }
+  }
+  
 });
