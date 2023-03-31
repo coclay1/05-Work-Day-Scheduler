@@ -247,5 +247,114 @@ $(function () {
       $('#hour-9').addClass('present')
     }
   }
-  
+  var hour10 = $('#hour-10')
+  hour10 = dayjs().hour(10)
+  function blockColor10() {
+    if (currentHour > 10 ) {
+      $('#hour-10').addClass('past')
+    } else if (currentHour < 10) {
+      $('#hour-10').addClass('future')
+    }else {
+      $('#hour-10').addClass('present')
+    }
+  }
+  var hour11 = $('#hour-11')
+  hour11 = dayjs().hour(11)
+  function blockColor11() {
+    if (currentHour > 11 ) {
+      $('#hour-11').addClass('past')
+    } else if (currentHour < 10) {
+      $('#hour-11').addClass('future')
+    }else {
+      $('#hour-11').addClass('present')
+    }
+  }
+  var hour12 = $('#hour-12')
+  hour12 = dayjs().hour(12)
+  function blockColor12() {
+    if (currentHour > 12 ) {
+      $('#hour-12').addClass('past')
+    } else if (currentHour < 12) {
+      $('#hour-12').addClass('future')
+    }else {
+      $('#hour-12').addClass('present')
+    }
+  }
+  var hour13 = $('#hour-1')
+  hour13 = dayjs().hour(13)
+  function blockColor13() {
+    if (currentHour > 13 ) {
+      $('#hour-1').addClass('past')
+    } else if (currentHour < 13) {
+      $('#hour-1').addClass('future')
+    }else {
+      $('#hour-1').addClass('present')
+    }
+  }
+  var hour14 = $('#hour-2')
+  hour14 = dayjs().hour(14)
+     function blockColor14() {
+    if (currentHour > 14 ) {
+      $('#hour-2').addClass('past')
+    } else if (currentHour < 14) {
+      $('#hour-2').addClass('future')
+    }else {
+      $('#hour-2').addClass('present')
+    }
+  }
+  var hour14 = $('#hour-3')
+  hour15 = dayjs().hour(15)
+  function blockColor15() {
+    if (currentHour > 15 ) {
+      $('#hour-3').addClass('past')
+    } else if (currentHour < 15) {
+      $('#hour-3').addClass('future')
+    }else {
+      $('#hour-3').addClass('present')
+    }
+  }
+  var hour16 = $('#hour-4')
+  hour16 = dayjs().hour(16)
+  function blockColor16() {
+    if (currentHour > 16 ) {
+      $('#hour-4').addClass('past')
+    } else if (currentHour < 16) {
+      $('#hour-4').addClass('future')
+    }else {
+      $('#hour-4').addClass('present')
+    }
+  }
+  var hour17 = $('#hour-5')
+  hour17 = dayjs().hour(17)
+  function blockColor17() {
+    if (currentHour > 17 ) {
+      $('#hour-5').addClass('past')
+    } else if (currentHour < 17) {
+      $('#hour-5').addClass('future')
+    }else {
+      $('#hour-5').addClass('present')
+    }
+  }
+// initial function that runs when webpage is loaded
+  function init() {
+    renderToDo()
+    renderToDo2()
+    renderToDo3()
+    renderToDo4()
+    renderToDo5()
+    renderToDo6()
+    renderToDo7()
+    renderToDo8()
+    renderToDo9()
+    blockColor9()
+    blockColor10()
+    blockColor11()
+    blockColor12()
+    blockColor13()
+    blockColor14()
+    blockColor15()
+    blockColor16()
+    blockColor17()
+  }
+  init()
 });
